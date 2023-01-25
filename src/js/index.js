@@ -1,12 +1,6 @@
 // El styles lo importamos aquí, ya se carga después al compilar todo
 import '../scss/styles.scss';
-import {
-  createRows,
-  printWord,
-  compareWords,
-  paintLetter
-} from './gameboard.js';
-import { numberTries, ALL_WORDS } from './constans.js';
+import { createRows, printWord, compareWords } from './gameboard.js';
 
 createRows();
 

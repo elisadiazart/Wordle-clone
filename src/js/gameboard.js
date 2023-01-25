@@ -31,23 +31,40 @@ console.log(choosenWord);
 
 const paintLetter = (position, classname, trycurrent) => {
   const currentLetter = gameBoard.children[trycurrent].children[position];
+  if (currentLetter.classList.contains('letter-correct')) return;
   currentLetter.classList.add(classname);
 };
 
 const compareWords = (word, trycurrent) => {
+  let word2 = '';
   let classname = '';
-  for (let index = 0; index <= numberLetters - 1; index++) {
+  for (let index = 0; index < numberLetters; index++) {
     if (word[index] === choosenWord[index]) {
       classname = 'letter-correct';
-    } else if (
-      word.includes(word[index]) &&
-      choosenWord.includes(word[index])
-    ) {
+      word2 += '-';
+      paintLetter(index, classname, trycurrent);
+    } else {
+      word2 += choosenWord[index];
+    }
+  }
+  console.log(word2);
+  for (let index = 0; index < word2.length; index++) {
+    const letter = word[index];
+    if (word2.includes(letter)) {
       classname = 'letter-contains';
+      paintLetter(index, classname, trycurrent);
     } else {
       classname = 'letter-incorrect';
+      paintLetter(index, classname, trycurrent);
     }
-    paintLetter(index, classname, trycurrent);
+  }
+
+  console.log(word2);
+
+  const newPopUp = document.createElement('div');
+  newPopUp.classList.add('pop-up');
+  gameBoard.append(newPopUp);
+  if (word.length !== 5) {
   }
 };
 

@@ -25,16 +25,15 @@ main{
     justify-content: center;
     font-size: 1.7rem;
 
+    &-incorrect{
+        background-color: rgb(154, 154, 154);
+    }
     &-correct{
         background-color: rgb(97, 206, 97);
     }
 
-    &-incorrect{
-        background-color: rgb(251, 61, 61);
-    }
-
     &-contains{
-        background-color: rgb(255, 220, 65);
+        background-color: rgb(228, 190, 23);
     }
 }
 
